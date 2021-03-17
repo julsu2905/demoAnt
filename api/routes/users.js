@@ -3,6 +3,9 @@ var router = express.Router();
 const multer = require('multer');
 let path = require('path');
 const userController = require('../controllers/userController');
+const productController = require('../controllers/productController');
+const categoryController = require('../controllers/categoryController');
+const { route } = require('../app');
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -22,9 +25,11 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
-
 /* GET users listing. */
-router.post('/user',upload.single('photo'),userController.createUser);
+router.route('/user')
+      .post(upload.single('photo'),userController.createUser)
+      .get(userController.getAllUsers);
+router.get('/user/:id',userController.getUser);
 
 
 module.exports = router;

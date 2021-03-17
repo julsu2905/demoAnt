@@ -33,7 +33,7 @@ app.options("*", cors());
 
 app.use(logger("dev"));
 
-app.use("/api/", usersRouter);
+app.use("/api/", userRoutes);
 
 
 // error handler

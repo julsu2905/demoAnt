@@ -8,7 +8,8 @@ const productSchema = new mongoose.Schema({
     category :{
         type : mongoose.Schema.Types.ObjectId,
         ref : "Category"
-    }
+    },
+    photo : String
 })
 
 const Product = mongoose.model("Product", productSchema, "products");
