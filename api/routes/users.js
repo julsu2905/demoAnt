@@ -24,8 +24,7 @@ let upload = multer({ storage, fileFilter });
 
 
 /* GET users listing. */
-router.post('/user',)
-});
+router.post('/user',upload.single('photo'),userController.createUser);
 
 
 module.exports = router;
