@@ -2,6 +2,6 @@ const Product = require("../models/productModel");
 const factory = require("./handlerFactory");
 
 
-exports.createUser = factory.createOne(Product);
-exports.getAllUsers = factory.getAll(Product);
-exports.getUser = factory.getOne(Product);
+exports.createProduct = factory.createOne(Product);
+exports.getAllProducts = factory.getAll(Product);
+exports.getProduct = factory.getOne(Product);
