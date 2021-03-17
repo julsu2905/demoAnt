@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "antd": "^4.14.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.4",
     "mongoose": "^5.12.0"
