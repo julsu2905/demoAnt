@@ -45,25 +45,28 @@ class Navigator extends Component {
             </Col>
           </Row>
         </div>
-        <div className="header-main">
-          <Divider style={{ background: "#fff" }} />
-          <Row>
-            <Col offset={2}>
-              <div className="logo-cover">
-                <img
-                  alt="logo"
-                  src="http://kimhangonline.vn/wp-content/uploads/2017/03/logo-kimhang-1.png"
-                ></img>
-              </div>
-              <div className="banner">
-                <div>
-                  
-                </div>
-              </div>
-            </Col>          
-          </Row>
-        </div>
-{/*         <Divider style={{ background: "#000" }} /> */}
+        <Divider style={{ background: "#fff" }} />
+        <Row className="header-main">
+          <Col className="logo-cover" offset={2}>
+            <img
+              alt="logo"
+              src="http://kimhangonline.vn/wp-content/uploads/2017/03/logo-kimhang-1.png"
+            ></img>
+          </Col>
+          <Col className="banner-cover">
+            <Row className="top-banner-cover">
+              <Col className="top-left-banner-cover">
+                <img src="http://kimhangonline.vn/wp-content/uploads/2017/04/KENH-PHAN-PHOIhhh.png"></img>
+              </Col>
+              <Col className="top-right-banner-cover">
+                <img src="http://kimhangonline.vn/wp-content/uploads/2017/04/HINH-THUC-THANH-hhTOAN-png.png"></img>
+              </Col>
+            </Row>
+            <Row className="banner">Hàng Việt Nam Chất Lượng Cao 21 Năm Liên Tục</Row>
+          </Col>
+        </Row>
+
+        {/*         <Divider style={{ background: "#000" }} /> */}
       </div>
     );
   }
