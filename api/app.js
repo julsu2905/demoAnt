@@ -1,6 +1,8 @@
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
+const xss = require('xss-clean');
+const mongoSanitize = require('express-mongo-sanitize');
 var cookieParser = require("cookie-parser");
 const session = require('express-session');
 var logger = require("morgan");
@@ -27,7 +29,8 @@ app.use(
     saveUninitialized: false,
   })
 );
-
+app.use(mongoSanitize());
+app.use(xss());
 app.use(cors());
 app.options("*", cors());
 
