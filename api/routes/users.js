@@ -33,6 +33,12 @@ router.get('/user/:id',userController.getUser);
 router.route('/category')
       .post(upload.single('photo'),categoryController.createCategory)
       .get(categoryController.getAllCategories);
-router.get('/category/:id',categoryController.getCategory);
+router.route('/category/:id').get(categoryController.getCategory)
+      .delete(categoryController.deleteCategory);
 
+router.route('/product')
+      .post(upload.single('photo'),productController.createProduct)
+      .get(productController.getAllProducts);
+      router.route('/product/:id').get(productController.getProduct)
+      .delete(productController.deleteProduct);
 module.exports = router;

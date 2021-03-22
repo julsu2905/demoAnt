@@ -5,14 +5,18 @@ const productSchema = new mongoose.Schema({
        type: String,
        required : [true, "Please provide product's name"]
     },
-    price : String,
+    price : Number,
     currency : String,
     description : String,
-    category :{
+    categories :[{
         type : mongoose.Schema.Types.ObjectId,
         ref : "Category"
-    },
-    photo : String
+    }],
+    photo : String,
+    variants :[{
+        type :mongoose.Schema.Types.ObjectId,
+        ref : "Product"
+    }]
 })
 
 const Product = mongoose.model("Product", productSchema, "products");

@@ -1,8 +1,14 @@
-.header-main{
-    width: 100%;
+.header .navigator{
+  background: #84DD15;
+  color: white;
+  font-size: 13px;
+  line-height: 22px;
+  text-transform: uppercase;
 }
-.banner{
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover {
+  color: white;
+  border-bottom: 2px solid white;
+}
+.header .navigator .ant-menu-item:hover{
+  color: white;
 }
