@@ -8,12 +8,13 @@
 }
 .ant-layout-header{
   background: #84DD15;
-  height: 200px;
+  height: 170px;
   display: flex;
   justify-content: space-between;
   width: 100%;
   flex-direction: column;
   border-bottom: 2.5px solid black;
+  line-height: 30px;
 }
 .ant-layout-sider{
   background: #F6F6F6;
@@ -25,4 +26,17 @@
 .logo-cover{
   width: 280px;
   height:130px;
+}
+
+.ant-layout-content{
+  margin-top: 5px;
+}
+.side-menu-wrapper{
+  width: 100%;
+}
+.main-content {
+  margin-left:5px ;
+}
+.control-bar-wrapper{
+  background: #EBEBEB;
 }
