@@ -22,7 +22,8 @@ const SideMenu = (props) => {
             return (
               <SubMenu className="categories-item" key={_id} title={name}>
                 {products.length > 0 &&
-                  products.map((product) => {
+                  products.map((product) => {  
+                    console.log(product);                
                     const { _id, name } = product;
                     return <Menu.Item key={_id}>{name} </Menu.Item>;
                   })}

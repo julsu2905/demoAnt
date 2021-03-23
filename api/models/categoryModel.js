@@ -5,9 +5,9 @@ const categorySchema = new mongoose.Schema({
         type: String,
         required: [true,"Please provide category's name"]
     },
-    products : [{
+    productGroups : [{
         type: mongoose.Schema.Types.ObjectId,
-        ref : "Product"
+        ref : "ProductGroup"
     }]
 })
 

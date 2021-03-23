@@ -1,16 +1,16 @@
 import React from "react";
-import { Col, Row, Form, Input, Button, AutoComplete, TreeSelect } from "antd";
+import { Col, Row, Form, Button, AutoComplete, TreeSelect } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import "./component-css/SearchBar.css";
 const { TreeNode } = TreeSelect;
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [form] = Form.useForm();
 
   return (
-    <Row>
+    <Row className="search-form-wrapper">
       <Form className="search-form" layout={"inline"} form={form}>
-        <Col className="form-item" span={7} offset={2}>
+        <Col className="form-item" span={4} offset={2}>
           <Form.Item>
             <AutoComplete
               className="search-input"
@@ -22,12 +22,18 @@ const SearchBar = () => {
             />
           </Form.Item>
         </Col>
-        <Col className="form-item" span={7} offset={2}>
+        <Col className="form-item" span={7} offset={6}>
           <Form.Item>
-            <Input placeholder="input placeholder" />
+            <TreeSelect
+              style={{ width: "100%" }}
+              dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+              treeData={props.categories}
+              placeholder="Please select"
+              treeDefaultExpandAll
+            />
           </Form.Item>
         </Col>
-        <Col className="form-item" span={7} offset={2}>
+        <Col className="form-item" span={1} offset={1}>
           <Form.Item>
             <Button>
               <SearchOutlined />

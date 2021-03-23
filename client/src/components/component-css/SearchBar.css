@@ -1,4 +1,9 @@
 .content .search-input {
-  position: relative;
-  width: 500px;
+  width: 400px;
+}
+.content .search-form-wrapper{
+  width: 100%;
+}
+.content .search-form{
+  width: inherit;
 }

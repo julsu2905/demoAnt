@@ -6,14 +6,14 @@ const productSchema = new mongoose.Schema({
     required: [true, "Please provide product's name"],
   },
   price: Number,
+  color: String,
+  size: String,
   currency: String,
   description: String,
-  categories: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-    },
-  ],
+  productGroup: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ProductGroup",
+  },
   photo: String,
   variants: [
     {
@@ -22,7 +22,6 @@ const productSchema = new mongoose.Schema({
     },
   ],
 });
-
 
 const Product = mongoose.model("Product", productSchema, "products");
 module.exports = Product;
