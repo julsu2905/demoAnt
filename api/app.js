@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(
       null,
-      req.file.filename + "-" + Date.now() + path.extname(file.originalname)
+      file.originalname + "-" + Date.now() + path.extname(file.originalname)
     );
   },
 });
@@ -48,16 +48,16 @@ const fileFilter = (req, file, cb) => {
     cb(null, false);
   }
 };
-app.use(
-  multer({ storage, fileFilter }).fields([{ name: "photo", maxCount: 1 }])
-);
+
 app.use(mongoSanitize());
 app.use(xss());
 app.use(cors());
 app.options("*", cors());
 
 app.use(logger("dev"));
-
+app.use(
+  multer({ storage, fileFilter }).fields([{ name: "photo", maxCount: 1 }])
+);
 app.use("/api/", userRoutes);
 
 // error handler
