@@ -16,12 +16,16 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     variants : req.body.variants
   });
 
-  await ProductGroup.findByIdAndUpdate(req.productGroup, {
+  await ProductGroup.findByIdAndUpdate(req.body.productGroup, {
     $addToSet: {
       products: doc.id,
     },
   });
-
+  await ProductGroup.findByIdAndUpdate("605d4ee84704780768c04bbd",{
+    $addToSet : {
+      products: doc.id
+    }
+  })
   res.status(200).json({
     status: "success",
     data: doc,

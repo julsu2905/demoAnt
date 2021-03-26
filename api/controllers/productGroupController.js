@@ -9,7 +9,7 @@ exports.createProductGroup = catchAsync(async (req, res, next) => {
     category: req.body.category,
     products: req.body.products,
   });
-  await Category.findOneAndUpdate(doc.category, {
+  const cate = await Category.findByIdAndUpdate(req.body.category, {
     $addToSet: {
       productGroups: doc.id,
     },

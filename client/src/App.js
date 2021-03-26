@@ -23,7 +23,6 @@ class App extends Component {
     axios
       .get("http://127.0.0.1:2905/api/category")
       .then((res) => {
-        console.log(res.data.data);
         this.setState({ categories: res.data.data, isLoading: true });
       })
       .catch((err) => {
@@ -47,16 +46,18 @@ class App extends Component {
                   <SideMenu {...this.state} className="side-menu" />
                 </Col>
                 <Col flex="auto" className="main-content">
-                  <Row className="control-bar-wrapper">                  
-                      <SearchBar />
+                  <Row className="control-bar-wrapper">
+                    <SearchBar />
                   </Row>
                 </Col>
               </Row>
+              <Route exact path={["/", "/home"]}></Route>
             </Content>
             <Sider></Sider>
           </Layout>
           <Footer>Footer</Footer>
         </Layout>
+
       </Router>
     );
   }

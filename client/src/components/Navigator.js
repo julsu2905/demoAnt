@@ -8,12 +8,14 @@ import {
   ShoppingCartOutlined
 } from "@ant-design/icons";
 import "./component-css/Navigator.css";
+import { useHistory } from "react-router";
 
 const Navigator = () => {
+  const history = useHistory();
   const [current, setCurrent] = useState("home");
   const handleClick = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
+    history.push(e.key);
   };
   return (
     <Row className="nav-wrapper">

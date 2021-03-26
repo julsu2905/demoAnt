@@ -2,9 +2,14 @@ import React from "react";
 import { Col, Row, Menu } from "antd";
 import "./component-css/SideMenu.css";
 import { MenuOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router";
 const { SubMenu } = Menu;
 
 const SideMenu = (props) => {
+  const history = useHistory();
+  const handleClick = (e) => {
+    console.log(e);
+  };
   return (
     <div>
       <Row className="category-heading">
@@ -16,16 +21,25 @@ const SideMenu = (props) => {
         </Col>
       </Row>
       <Row className="category-list-wrapper">
-        <Menu className="category-list" mode="vertical">
+        <Menu onClick={handleClick} className="category-list" mode="vertical">
           {props.categories.map((category) => {
-            const { _id, name, products } = category;
+            const { _id, name, productGroups } = category;
             return (
-              <SubMenu className="categories-item" key={_id} title={name}>
-                {products.length > 0 &&
-                  products.map((product) => {  
-                    console.log(product);                
-                    const { _id, name } = product;
-                    return <Menu.Item key={_id}>{name} </Menu.Item>;
+              <SubMenu
+                onTitleClick={handleClick}
+                className="product-group-list"
+                key={_id}
+                title={name}
+              >
+                {productGroups.length > 0 &&
+                  productGroups.map((productGroup) => {
+                    const { _id, name } = productGroup;
+                    return (
+                      <Menu.Item
+                        key={_id}
+                        className="product-group-item"
+                      >{name}</Menu.Item>
+                    );
                   })}
               </SubMenu>
             );

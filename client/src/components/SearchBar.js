@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   return (
     <Row className="search-form-wrapper">
       <Form className="search-form" layout={"inline"} form={form}>
-        <Col className="form-item" span={4} offset={2}>
+        <Col className="form-item" span={4} offset={1}>
           <Form.Item>
             <AutoComplete
               className="search-input"
