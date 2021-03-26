@@ -1,8 +1,7 @@
 const Product = require("../models/productModel");
 const factory = require("./handlerFactory");
 const catchAsync = require("../utils/catchAsync");
-const fs = require("fs");
-const Category = require("../models/categoryModel");
+const ProductGroup = require("../models/productGroupModel");
 
 exports.createProduct = catchAsync(async (req, res, next) => {
   const doc = await Product.create({
@@ -11,21 +10,18 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     currency: req.body.currency,
     description: req.body.description,
     photo: req.body.photo,
+    color: req.body.color,
+    size: req.body.size,
+    productGroup : req.body.productGroup,
+    variants : req.body.variants
   });
-  await Product.findByIdAndUpdate(doc.id, {
+
+  await ProductGroup.findByIdAndUpdate(req.productGroup, {
     $addToSet: {
-      categories: req.body.categories,
-      variants: req.body.variants,
+      products: doc.id,
     },
   });
-  const arrayCategories = req.body.categories;
-  arrayCategories.forEach(async category =>{
-    await Category.findByIdAndUpdate(category,{
-        $addToSet :{
-            products : doc.id
-        }
-    });
-  });
+
   res.status(200).json({
     status: "success",
     data: doc,
