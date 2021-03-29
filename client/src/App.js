@@ -49,15 +49,16 @@ class App extends Component {
                   <Row className="control-bar-wrapper">
                     <SearchBar />
                   </Row>
+                  <Row>
+                    <Route exact path={["/", "/home"]}></Route>
+                  </Row>
                 </Col>
               </Row>
-              <Route exact path={["/", "/home"]}></Route>
             </Content>
             <Sider></Sider>
           </Layout>
           <Footer>Footer</Footer>
         </Layout>
-
       </Router>
     );
   }
