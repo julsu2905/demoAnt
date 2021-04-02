@@ -26,7 +26,7 @@ class App extends Component {
         this.setState({ categories: res.data.data, isLoading: true });
       })
       .catch((err) => {
-        console.log(err);
+        console.log(asxasxasx);
         this.setState({ error: err });
       });
   }
