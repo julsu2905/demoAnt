@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Navigator from "./components/Navigator";
-import { Col, Layout, Row } from "antd";
+import { Col, Layout, Row , Image} from "antd";
 import "./css/App.css";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import HeaderMain from "./components/HeaderMain";
 import SideMenu from "./components/SideMenu";
 import SearchBar from "./components/SearchBar";
+import MainCarousel from "./components/MainCarousel";
 const { Header, Footer, Sider, Content } = Layout;
 
 class App extends Component {
@@ -42,15 +43,20 @@ class App extends Component {
             <Sider></Sider>
             <Content className="content-wrapper">
               <Row className="content">
-                <Col flex="280px" className="side-menu-wrapper">
+                <Col span={6} className="side-menu-wrapper">
                   <SideMenu {...this.state} className="side-menu" />
                 </Col>
-                <Col flex="auto" className="main-content">
+                <Col span={17} className="main-content">
                   <Row className="control-bar-wrapper">
                     <SearchBar />
                   </Row>
-                  <Row>
-                    <Route exact path={["/", "/home"]}></Route>
+                  <Row className="main-carousel-wrapper">
+                    <Col span={18} className="carousel-wrapper">
+                      <Route exact path={["/", "/home"]}>
+                        <MainCarousel />
+                        <img alt="main-image" src=""></img>
+                      </Route>
+                    </Col>
                   </Row>
                 </Col>
               </Row>

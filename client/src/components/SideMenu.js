@@ -7,8 +7,11 @@ const { SubMenu } = Menu;
 
 const SideMenu = (props) => {
   const history = useHistory();
+  const handleTitleClick = (e) => {
+    history.push(`/category/${e.key}`)
+  };
   const handleClick = (e) => {
-    console.log(e);
+    history.push(`/product/${e.key}`)
   };
   return (
     <div>
@@ -26,7 +29,7 @@ const SideMenu = (props) => {
             const { _id, name, productGroups } = category;
             return (
               <SubMenu
-                onTitleClick={handleClick}
+                onTitleClick={handleTitleClick}
                 className="product-group-list"
                 key={_id}
                 title={name}
